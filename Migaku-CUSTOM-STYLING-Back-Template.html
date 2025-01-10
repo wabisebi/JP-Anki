@@ -1,0 +1,79 @@
+<span id="exp">
+
+    <div class="sentence-wrapper" style="font-size: 35px">
+        {{Sentence}}
+    </div>
+    
+    <div class="target-word-wrapper" style="font-size: 35px">
+        <hr>
+            <b>
+                {{text:Expression}}
+            </b>
+    </div>
+    
+    
+    <script>
+    // Makes the target word in the sentence appear in bold //
+    var target = '{{Expression}}';
+    var exp = document.getElementById("exp").innerHTML;
+    document.getElementById("exp").innerHTML = exp.replace(target, "<b>" + target + "</b>");
+    </script>
+    <br>
+    
+    <div class="audio-wrapper">
+         {{Word Audio}}{{Sentence Audio}}
+    </div>
+    <br>
+    
+    <div class="definitions-wrapper" style="font-size: 25px">
+        {{Definitions}}
+    </div>
+    
+    <br>
+        <div class="sentence-translation-wrapper" style="font-size: 20px; font-style: italic; color:#c2a34c">
+            {{Sentence Translation}}
+        </div>
+    <br>
+    
+    <div class="images-wrapper">
+        {{Images}}
+    </div>
+    <br>
+    <div class="notes-wrapper" style="font-size: 15px; color:#7d7b77">
+        {{Notes}}
+    </div>
+    
+    
+    <script>
+    // Removes "∙" and "★" from definitions to make them a bit cleaner if it's at the start
+    document.querySelectorAll('.definitions-wrapper p').forEach((p, index) => {
+        if (index === 0 || index === 1) { // Only target the first <p> element
+            p.innerHTML = p.innerHTML.replace(/[∙★]+/, "");
+        }
+    });
+    
+    // Removes curly braces from the {{Sentence}} and {{Expression}} fields
+    document.querySelectorAll('.sentence-wrapper, .target-word-wrapper').forEach((element) => {
+        element.innerHTML = element.innerHTML.replace(/[{}]/g, ""); // Removes curly braces
+    });
+    
+    
+    // Remove Migaku syntax
+    document.querySelectorAll('.definitions-wrapper').forEach(wrapper => {
+        // Remove [;...] and ;... patterns
+        wrapper.innerHTML = wrapper.innerHTML.replace(/(\[;.*?\]|;[a-z0-9]+)/gi, "");
+    
+        // Remove all patterns like [,something] or [something]
+        wrapper.innerHTML = wrapper.innerHTML.replace(/\[[^\]]*\]/g, "");
+    
+        // Remove curly braces and any whitespace around them
+        wrapper.innerHTML = wrapper.innerHTML.replace(/[{}]/g, "");
+    
+        // Remove extra spaces between characters
+        wrapper.innerHTML = wrapper.innerHTML.replace(/(?<=[\p{sc=Hiragana}\p{sc=Katakana}\p{sc=Han}])\s+(?=[\p{sc=Hiragana}\p{sc=Katakana}\p{sc=Han}])/gu, "");
+    
+        // Remove extra spaces before `】`
+        wrapper.innerHTML = wrapper.innerHTML.replace(/\s+】/g, "】");
+    });
+    </script>
+    

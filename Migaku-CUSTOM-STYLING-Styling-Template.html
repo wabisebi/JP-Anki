@@ -1,0 +1,169 @@
+/* Added for max image size SEB*/
+
+img {
+    width: 400px; /* Replace with your preferred width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Keep the rounded corners, if desired */
+}
+
+/* end /*
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Serif+JP&display=swap');
+
+html.win,
+html.mac,
+html.linux:not(.android) {
+  --main-font: "Noto Serif JP", serif;
+  --sub-font: "Noto Sans JP", sans-serif;
+  --main-font-size: 22px;
+  --main-def-size: 22px;
+  --front-vocab-font-size: 48px;
+  --front-sentence-font-size: 50px;
+  --max-width: 800px;
+}
+
+html.mobile {
+  --main-font: "Noto Serif JP", serif;
+  --sub-font: "Noto Sans JP", sans-serif;
+  --main-font-size: 22px;
+  --main-def-size: 20px;
+  --front-vocab-font-size: 48px;
+  --front-sentence-font-size: 36px;
+  --max-width: 800px;
+}
+
+/* Remove default margins */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.card {
+  --main-bg: #fafaf7;
+  --sub-bg: #f0f0eb;
+  --tag-bg: #d9d9d9;
+  --main-color: #000000;
+  --sub-color: #d43b66;
+  --tag-color: #666664;
+  --border-color: #999999;
+  --bold-color: #999999;
+  background-color: var(--main-bg);
+  color: var(--main-color);
+}
+
+.card.nightMode {
+  --main-bg: #1c2127;
+  --sub-bg: #282c34;
+  --tag-bg: #47526640;
+  --main-color: #dadada;
+  --sub-color: #7d8590;
+  --tag-color: #959da5;
+  --border-color: #35393e;
+  --bold-color: #8aaeb5;
+  background-color: var(--main-bg);
+  color: var(--main-color);
+}
+
+#qa {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  min-height: calc(100vh - 40px);
+  font-family: var(--main-font);
+  font-size: var(--main-font-size);
+  text-align: center;
+}
+
+@font-face {
+  font-family: "Noto Sans JP";
+  src: local("Noto Sans JP"), local("Noto Sans JP Regular"), url("_NotoSansJP.otf");
+}
+
+@font-face {
+  font-family: "Noto Serif JP";
+  src: local("Noto Serif JP"), local("Noto Serif JP Regular"), url("_NotoSerifJP.otf");
+}
+
+/* ------- Mobile css ------- */
+@media (max-width: 512px) {
+  .mono-def {
+    flex-direction: column;
+  }
+  .images-container {
+    justify-content: space-around;
+    flex-direction: row;
+    max-width: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .images-container img {
+    width: 44%;
+  }
+}
+
+/* ----- Front elements ----- */
+
+.front-vocab {
+  font-size: var(--front-vocab-font-size);
+}
+.front-sentence {
+  font-size: var(--front-sentence-font-size);
+  display: inline-block;
+}
+#hint {
+  margin-top: -10px;
+  font-size: var(--main-font-size);
+}
+
+/* ----- Back elements ----- */
+
+
+/* Replay button */
+.replay-button {
+  margin-top: -5px;
+}
+.replay-button svg {
+  width: 30px;
+  height: auto;
+}
+.replay-button svg path {
+  fill: var(--main-color);
+}
+.replay-button svg circle {
+  display: none;
+}
+.replay-button:hover svg path {
+  fill: var(--sub-color);
+}
+.replay-button span {
+  padding: 0;
+  font-size: 16px;
+}
+.replay-button span svg {
+  border-radius: 8px;
+  vertical-align: top;
+  min-width: 16px;
+  min-height: 16px;
+  background: var(--main-color);
+}
+.replay-button span path {
+  fill: var(--main-bg);
+}
+
+
+/* Bold */
+b {
+  color: var(--bold-color);
+  font-weight: 400;
+}
+b > ruby rt {
+  opacity: 1;
+}
+
+
+/* Line margins */
+hr {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
