@@ -1,0 +1,22 @@
+<div id="deck" deck_name="{{Deck}}"></div>
+<!---------- Header ------------->
+<header style="visibility: hidden"></header>
+
+<main>
+  <!--------- Vocab card ---------->
+  {{^*IsSentenceCard}}
+  <div lang="ja" class="front-vocab">{{Expression}}</div>
+  {{#Hint}}
+  <div id="hint">{{Hint}}</div>
+  {{/Hint}} {{/*IsSentenceCard}}
+
+  <!------- Sentence card --------->
+  {{#*IsSentenceCard}}
+  <div lang="ja" class="front-sentence">
+    {{#SentenceFurigana}} {{kanji:SentenceFurigana}} {{/SentenceFurigana}}
+    {{^SentenceFurigana}} {{kanji:Sentence}} {{/SentenceFurigana}}
+  </div>
+  {{#Hint}}
+  <div id="hint">{{Hint}}</div>
+  {{/Hint}} {{/*IsSentenceCard}}
+</main>
